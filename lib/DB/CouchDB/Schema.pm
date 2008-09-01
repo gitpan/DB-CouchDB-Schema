@@ -138,7 +138,7 @@ sub dump {
     return $script;
 }
 
-=head2 dump($pretty)
+=head2 push()
 
 Pushes the current schema stored in the object to the database. Used in combination with load_schema_from_script
 you can restore or create databse schemas from a json defintion file.

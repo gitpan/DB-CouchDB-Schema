@@ -188,7 +188,7 @@ sub wipe {
 =head1 ACCESSORS
 
 When DB::CouchDB objects are new'ed up they create accessors for the views defined
-in the Database. Calling C<$schema->view_name(\%view_args)> will return you the data
+in the Database. Calling $schema->view_name(\%view_args) will return you the data
 for the views. See L<DB::CouchDB> view method for more information on the args for a view.
 
 =cut

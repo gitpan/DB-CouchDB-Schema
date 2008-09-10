@@ -1,4 +1,4 @@
-#!/usr/bin/env perl -w
+#!perl
 use DB::CouchDB::Schema;
 use Getopt::Long;
 
@@ -42,12 +42,13 @@ if ($database && $host) {
         local $/;
         $script = <$fh>;
         print "loading schema: ", $/, $script;
+        $db->wipe();
         $db->load_schema_from_script($script);
         $db->push();
         close $fh;
         exit 0;
     } else {
-        print "Did not understand options!!", $/;
+        print "Did not understand options!! did you specify --dump or --load?", $/;
         useage();
         exit 1;
     }

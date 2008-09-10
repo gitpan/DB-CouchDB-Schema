@@ -13,8 +13,10 @@ no_index:
     - inc
     - t
 requires:
+  Carp: 0
   Getopt::Long: 0
   JSON: 0
   LWP::UserAgent: 0
+  Moose: 0.57
   URI: 0
-version: 0.2.1
+version: 0.3

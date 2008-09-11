@@ -1,6 +1,6 @@
 use Test::More;
 
-plan tests => 2;
+plan tests => 4;
 
 my $module = 'DB::CouchDB::Schema';
 

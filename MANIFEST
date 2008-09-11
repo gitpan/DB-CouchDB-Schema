@@ -11,7 +11,6 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/DB/CouchDB.pm
-lib/DB/CouchDB/.Schema.pm.swp
 lib/DB/CouchDB/Iter.pod
 lib/DB/CouchDB/Result.pod
 lib/DB/CouchDB/Schema.pm
@@ -22,7 +21,6 @@ META.yml
 README
 script/couch_schema_tool.pl
 script/functional.pl
-t/.03-couch-schema.t.swp
 t/01-db-couchdb.t
 t/02-db-couchdb_iter.t
 t/03-couch-schema.t

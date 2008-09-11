@@ -206,14 +206,6 @@ for the views. See L<DB::CouchDB> view method for more information on the args f
 
 =cut
 
-#sub AUTOLOAD {
-#    my ($package, $call) = $AUTOLOAD =~ /^(.+)::(.+)$/;
-#    my $self = shift;
-#    if ($package eq 'DB::CouchDB::Schema') {
-#        if ( exists $self->{views}{$call}) {
-#            return $self->{views}{$call}->(@_);
-#        }
-#    }
-#}
+#TODO(jwall): DEMOLISH method that removes that view accessors from the class
 
 1;

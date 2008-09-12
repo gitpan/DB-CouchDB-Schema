@@ -1,4 +1,5 @@
 .TODO.swp
+DB-CouchDB-Schema-0.3.01.tar.gz
 inc/Module/AutoInstall.pm
 inc/Module/Install.pm
 inc/Module/Install/AutoInstall.pm
@@ -24,4 +25,5 @@ script/functional.pl
 t/01-db-couchdb.t
 t/02-db-couchdb_iter.t
 t/03-couch-schema.t
+t/04-mock_couch.t
 TODO

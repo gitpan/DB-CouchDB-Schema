@@ -19,4 +19,4 @@ requires:
   LWP::UserAgent: 0
   Moose: 0.57
   URI: 0
-version: 0.3
+version: 0.3.01

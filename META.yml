@@ -1,6 +1,8 @@
 ---
 abstract: ~
 author: ~
+build_requires:
+  Test::MockObject: 0
 distribution_type: module
 generated_by: 'Module::Install version 0.75'
 license: unknown
@@ -18,5 +20,6 @@ requires:
   JSON: 0
   LWP::UserAgent: 0
   Moose: 0.57
+  Pod::Usage: 0
   URI: 0
-version: 0.3.01
+version: 0.3.02

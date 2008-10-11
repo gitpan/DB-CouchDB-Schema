@@ -3,7 +3,7 @@ use DB::CouchDB;
 use Moose;
 use Carp;
 
-our $VERSION = '0.3.01';
+our $VERSION = '0.3.02';
 
 =head1 NAME
 
@@ -183,7 +183,6 @@ sub dump {
 Pushes the current schema stored in the object to the database. Used in combination with load_schema_from_script
 you can restore or create databse schemas from a json defintion file.
 
-
 =cut
 
 sub push {
@@ -222,6 +221,60 @@ sub get {
     my $self = shift;
     my $name = shift;
     return $self->server->get_doc($name);
+}
+
+=head2 create_doc(%sargs) 
+
+create a doc on the server. accepts the following arguments
+
+    id => 'the name of the document' #optional if you want to let CouchDB name it for you
+    doc => $object #not optional $object is the document to store in CouchDB
+
+=cut
+
+sub create_doc {
+    my $self = shift;
+    my %args = @_;
+    my $db = $self->server;
+    if ( $args{id} ) {
+        my $id = $args{id};
+        return $db->create_named_doc( $args{doc}, $args{id} );
+    } else {
+        return $db->create_doc( $args{doc} );
+    }
+}
+
+=head2 create_new_db(db => 'database name')
+
+create a new database in CouchDB and return a DB::CouchDB::Schema object for it.
+
+It takes the following argument
+   
+   db => 'database name' # not optional the name of the database to create.
+
+=cut
+
+sub create_new_db {
+    my $self = shift;
+    my %args = @_;
+    my $db = $self->server;
+    if ( !$args{db} ) {
+        croak "Must provide a DB to create";
+    }
+    #create a new DB::CouchDB object to represent the server
+    my $srv = DB::CouchDB->new( host => $db->host,
+                                port => $db->port,
+                                db   => $args{db},
+                              );
+    # create the database
+    my $result = $srv->create_db();
+    if ( $result->err ) {
+        croak "Failed to create the DB $args{db}:". $result->errstr;
+    }
+    #create a schema object for the databas and return ite
+    my $schema = DB::CouchDB::Schema->new();
+    $schema->server($srv);
+    return $schema;
 }
 
 =head2 wipe

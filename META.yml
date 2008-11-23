@@ -1,20 +1,20 @@
----
+--- 
 abstract: ~
 author: ~
-build_requires:
+build_requires: 
   Test::MockObject: 0
 distribution_type: module
-generated_by: 'Module::Install version 0.75'
+generated_by: Module::Install version 0.68
 license: unknown
-meta-spec:
+meta-spec: 
   url: http://module-build.sourceforge.net/META-spec-v1.3.html
   version: 1.3
 name: DB-CouchDB-Schema
-no_index:
-  directory:
+no_index: 
+  directory: 
     - inc
     - t
-requires:
+requires: 
   Carp: 0
   Getopt::Long: 0
   JSON: 0

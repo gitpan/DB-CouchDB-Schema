@@ -5,6 +5,7 @@ use strict;
 use JSON -convert_blessed_universally;
 use LWP::UserAgent;
 use URI;
+use Encode;
 
 $DB::CouchDB::VERSION = 0.2;
 
@@ -398,10 +399,12 @@ sub _call {
     my $content = shift;
     
     my $req     = HTTP::Request->new($method, $uri);
-    $req->content($content);
+    $req->content(Encode::encode('utf8', $content));
          
     my $ua = LWP::UserAgent->new();
-    my $response = $ua->request($req)->content();
+    my $response = $ua->request($req)->decoded_content({
+		default_charset => 'utf8'
+    });
     my $decoded = $self->json()->decode($response);
     return $decoded;
 }
